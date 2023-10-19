@@ -28,4 +28,11 @@ public class Witness extends Person{
     public void setReport(String report) {
         this.report = report;
     }
+    @Override
+    public String getInfo() {
+        return super.getInfo() +
+                "\nEndereço: " + this.address +
+                "\nContato: " + this.contact +
+                "\nRelato: " + this.report;
+    }
 }
