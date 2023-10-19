@@ -1,6 +1,6 @@
 package classes;
 
-public class Suspect {
+public class Suspect extends Person{
     private String descrption;
     private String address;
 
