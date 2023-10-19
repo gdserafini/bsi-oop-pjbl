@@ -19,5 +19,12 @@ public class Suspect extends Person{
     public void setAddress(String address) {
         this.address = address;
     }
+    @Override
+    public String getInfo() {
+        return super.getInfo() +
+                "\nDescrição: " + this.descrption +
+                "\nEndereço: " + this.address;
+    }
 }
+
 
