@@ -11,6 +11,7 @@ public class Policial extends Person {
         return super.getInfo() +
                 "\nCargo: " + this.cargo +
                 "\nSalario: " + this.salario +
+                "\nContratado em: " + this.dataDeContratacao +
                 "\nDelegacia onde atua: " + this.nomeDelegacia;
     }
 
