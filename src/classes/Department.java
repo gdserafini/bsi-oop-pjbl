@@ -2,13 +2,13 @@ package classes;
 
 import aux.MyLib;
 
-public class Departamento {
+public class Department {
 
     private String nome;
     private String endereco;
     private String contato;
 
-    public Departamento(String nome, String endereco, String contato){
+    public Department(String nome, String endereco, String contato){
         this.nome = nome;
         this.endereco = endereco;
         this.contato = contato;
