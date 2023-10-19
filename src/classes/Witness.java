@@ -1,6 +1,6 @@
 package classes;
 
-public class Witness {
+public class Witness extends Person{
     private String address;
     private String contact;
     private String report;
