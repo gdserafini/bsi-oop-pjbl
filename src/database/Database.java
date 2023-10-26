@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import aux.MyLib;
+import exception.DatabasePersistenceException;
+import interf.DBCaseEntity;
 
 public class Database {
     
@@ -25,25 +28,33 @@ public class Database {
             "" + STD_PATH + DB_NAME, true));
     }
 
-    public static String getCaseFile(int id){
+    public static String getCaseFile(int id) 
+            throws DatabasePersistenceException{
         try{
             var reader = getReader();
             while((line = reader.readLine())!=null){
                 if(line.split(",")[0].equals(Integer.toString(id))) return line;
             }
             reader.close();
-        } catch(Exception e){ e.printStackTrace(); }
+        } catch(Exception e){ 
+            throw new DatabasePersistenceException(
+                "Erro de leitura. " + e.getMessage());
+        }
         return null;
     }
 
-    public static void saveCase(String caseToSave){
+    public static void persistData(DBCaseEntity dataToSave) 
+            throws DatabasePersistenceException{
         try{
             var writer = getWriter();
-            writer.write(caseToSave);
+            writer.write(dataToSave.getDBCaseEntityData());
             writer.newLine();
             writer.close();
         }
-        catch(Exception e) { e.printStackTrace(); }
+        catch(Exception e) { 
+            throw new DatabasePersistenceException(
+                "Erro de leitura. " + e.getMessage());
+        }
     }
 
 }
