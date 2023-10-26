@@ -1,5 +1,8 @@
 package classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import aux.MyLib;
 import database.Database;
 import entity.Case;
@@ -22,21 +25,19 @@ public class Cadastro {
     public void salvaCaso(int id, 
             String caseNumber, String openingDate, String status){
         try {
-            if(id < 0 || MyLib.invalidString(caseNumber) || 
-                    MyLib.invalidString(status) || 
-                    MyLib.invalidString(status)){
+            if(id < 0 || invalidStrings(caseNumber, openingDate, status)){
                 throw new DatabasePersistenceException("Dados inválidos.");
             }
-            if(Database.getCaseFile(id) == null){
-                Database.persistData(
-                    new Case(id, caseNumber, openingDate, status));
-                return;
-            }
-            throw new DatabasePersistenceException(
-                "Este caso id: " + id + " já está salvo no banco de dados.");
+            else Database.persistData(new Case(id, caseNumber, openingDate, status));
         } catch (DatabasePersistenceException e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean invalidStrings(
+            String caseNumber, String openingDate, String status){
+        return MyLib.invalidString(caseNumber) || MyLib.invalidString(status) || 
+            MyLib.invalidString(status);
     }
 
 }

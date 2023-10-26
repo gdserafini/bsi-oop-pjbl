@@ -27,7 +27,7 @@ public class Database {
             "" + STD_PATH + DB_NAME, true));
     }
 
-    public static String getCaseFile(int id) 
+    public static String getData(int id) 
             throws DatabasePersistenceException{
         try{
             var reader = getReader();
@@ -45,15 +45,24 @@ public class Database {
     public static void persistData(DBCaseEntity dataToSave) 
             throws DatabasePersistenceException{
         try{
-            var writer = getWriter();
-            writer.write(dataToSave.getDBCaseEntityData());
-            writer.newLine();
-            writer.close();
+            if(getData(dataToSave.getCaseId()) == null){
+                saveData(dataToSave.getDBCaseEntityData());
+            }
+            else throw new DatabasePersistenceException(
+                "Dado id: " + dataToSave.getCaseId() + 
+                " já existe no banco de dados."); 
         }
         catch(Exception e) { 
             throw new DatabasePersistenceException(
                 "Erro de leitura. " + e.getMessage());
         }
+    }
+
+    private static void saveData(String data) throws IOException{
+        var writer = getWriter();
+        writer.write(data);
+        writer.newLine();
+        writer.close();
     }
 
 }
