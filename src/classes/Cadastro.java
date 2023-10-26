@@ -1,8 +1,5 @@
 package classes;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import aux.MyLib;
 import database.Database;
 import entity.Case;
