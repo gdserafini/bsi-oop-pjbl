@@ -1,6 +1,5 @@
 package entity;
 
-import java.util.Date;
 import aux.MyLib;
 import classes.Document;
 import interf.DBCaseEntity;
@@ -8,11 +7,11 @@ import interf.DBCaseEntity;
 public class Case extends Document implements DBCaseEntity {
     private int id;
     private String caseNumber;
-    private Date openingDate;
+    private String openingDate;
     private String status;
 
     public Case(int id, 
-            String caseNumber, Date openingDate, String status){
+            String caseNumber, String openingDate, String status){
         this.id = id;
         this.caseNumber = caseNumber;
         this.openingDate = openingDate;
@@ -39,7 +38,7 @@ public class Case extends Document implements DBCaseEntity {
 
     public int getId() { return id; }
 
-    public Date getOpeningDate() { return openingDate; }
+    public String getOpeningDate() { return openingDate; }
 
     public String getStatus() { return status; }
 
@@ -53,8 +52,8 @@ public class Case extends Document implements DBCaseEntity {
         this.id = id;
     }
 
-    public void setOpeningDate(Date openingDate) {
-        if(openingDate == null) return;
+    public void setOpeningDate(String openingDate) {
+        if(MyLib.invalidString(openingDate)) return;
         this.openingDate = openingDate;
     }
 

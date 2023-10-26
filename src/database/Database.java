@@ -35,11 +35,11 @@ public class Database {
                 if(line.split(",")[0].equals(Integer.toString(id))) return line;
             }
             reader.close();
+            return null;
         } catch(Exception e){ 
             throw new DatabasePersistenceException(
                 "Erro de leitura. " + e.getMessage());
         }
-        return null;
     }
 
     public static void persistData(DBCaseEntity dataToSave) 
