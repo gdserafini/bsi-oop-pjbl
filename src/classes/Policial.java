@@ -1,5 +1,7 @@
 package classes;
 
+import aux.MyLib;
+
 public class Policial extends Person {
     private String cargo;
     private float salario;
@@ -20,6 +22,7 @@ public class Policial extends Person {
     }
 
     public void setCargo(String cargo) {
+        if(MyLib.invalidString(cargo)) return;
         this.cargo = cargo;
     }
 
@@ -28,6 +31,7 @@ public class Policial extends Person {
     }
 
     public void setSalario(float salario) {
+        if(salario <= 0) return;
         this.salario = salario;
     }
 
@@ -36,6 +40,7 @@ public class Policial extends Person {
     }
 
     public void setDataDeContratacao(String dataDeContratacao) {
+        if(MyLib.invalidString(dataDeContratacao)) return;
         this.dataDeContratacao = dataDeContratacao;
     }
 
@@ -44,6 +49,7 @@ public class Policial extends Person {
     }
 
     public void setNomeDelegacia(String nomeDelegacia) {
+        if(MyLib.invalidString(nomeDelegacia)) return;
         this.nomeDelegacia = nomeDelegacia;
     }
 }

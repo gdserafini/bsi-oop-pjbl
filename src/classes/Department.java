@@ -28,6 +28,7 @@ public class Department {
     }
 
     public void setEndereco(String endereco) {
+        if(MyLib.invalidString(endereco)) return;
         this.endereco = endereco;
     }
 
@@ -36,6 +37,7 @@ public class Department {
     }
 
     public void setContato(String contato) {
+        if(MyLib.invalidString(contato)) return;
         this.contato = contato;
     }
 }

@@ -1,5 +1,7 @@
 package classes;
 
+import aux.MyLib;
+
 public class Witness extends Person{
     private String address;
     private String contact;
@@ -10,6 +12,7 @@ public class Witness extends Person{
     }
 
     public void setAddress(String address) {
+        if(MyLib.invalidString(address)) return;
         this.address = address;
     }
 
@@ -18,6 +21,7 @@ public class Witness extends Person{
     }
 
     public void setContact(String contact) {
+        if(MyLib.invalidString(contact)) return;
         this.contact = contact;
     }
 
@@ -26,6 +30,7 @@ public class Witness extends Person{
     }
 
     public void setReport(String report) {
+        if(MyLib.invalidString(report)) return;
         this.report = report;
     }
     @Override
