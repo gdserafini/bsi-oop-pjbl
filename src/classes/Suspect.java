@@ -6,6 +6,13 @@ public class Suspect extends Person{
     private String descrption;
     private String address;
 
+    public Suspect(String name, int age, String description, 
+            String address){
+        super(name, age);
+        this.descrption = description;
+        this.address = address;
+    }
+
     public String getDescrption() {
         return descrption;
     }

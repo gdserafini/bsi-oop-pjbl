@@ -8,6 +8,15 @@ public class Policial extends Person {
     private String dataDeContratacao;
     private String nomeDelegacia;
 
+    public Policial(String name, int age, String cargo,
+            float salario, String dataDeContratacao, String nomeDelegacia){
+        super(name, age);
+        this.cargo = cargo;
+        this.salario = salario;
+        this.dataDeContratacao = dataDeContratacao;
+        this.nomeDelegacia = nomeDelegacia;
+    }
+
     @Override
     public String getInfo() {
         return super.getInfo() +

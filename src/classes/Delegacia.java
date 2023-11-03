@@ -11,6 +11,12 @@ public class Delegacia {
 
     ArrayList<Policial> policiais = new ArrayList<>();
 
+    public Delegacia(String nome, String endereco, String contato){
+        this.nome = nome;
+        this.endereco = endereco;
+        this.contato = contato;
+    }
+
     public String getNome() {
         return nome;
     }

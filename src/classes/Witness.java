@@ -3,9 +3,18 @@ package classes;
 import aux.MyLib;
 
 public class Witness extends Person{
+
     private String address;
     private String contact;
     private String report;
+
+    public Witness(String name, int age, String address, 
+            String contact, String report) {
+        super(name, age);
+        this.address = address;
+        this.contact = contact;
+        this.report = report;
+    }
 
     public String getAddress() {
         return address;
