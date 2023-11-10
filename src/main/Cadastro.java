@@ -1,5 +1,7 @@
 package main;
 
+import java.util.regex.Pattern;
+
 import aux.MyLib;
 import classes.Delegacia;
 import classes.Department;
@@ -70,10 +72,24 @@ public class Cadastro {
         }
     }
 
+    private boolean invalidCaseNumber(String caseNumber){
+        return Pattern.compile(".*[a-aA-Z].*").matcher(caseNumber).matches();
+    }
+
+    private boolean invalidDate(String date){
+        return Pattern.compile("\\d{2}/\\d{2}/\\d{4}").matcher(date).matches();
+    }
+
+    private boolean invalidStatus(String date){
+        return Pattern.compile(".*\\d.*").matcher(date).matches();
+    }
+
     public void salvaCaso(int id, 
             String caseNumber, String openingDate, String status){
         try {
-            if(id < 0 || invalidStrings(caseNumber, openingDate, status)){
+            if(id < 0 || invalidStrings(caseNumber, openingDate, status) ||
+                    invalidCaseNumber(caseNumber) || invalidDate(openingDate) ||
+                    invalidStatus(status)){
                 throw new DatabasePersistenceException("Dados inválidos.");
             }
             else Database.persistData(new Case(id, caseNumber, openingDate, status));
