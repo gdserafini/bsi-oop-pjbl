@@ -8,8 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import entity.Case;
 import exception.DatabasePersistenceException;
 import interf.DBCaseEntity;
 
