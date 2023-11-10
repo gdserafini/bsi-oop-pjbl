@@ -6,6 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import entity.Case;
 import exception.DatabasePersistenceException;
 import interf.DBCaseEntity;
 
@@ -27,19 +31,29 @@ public class Database {
             "" + STD_PATH + DB_NAME, true));
     }
 
-    public static String getData(int id) 
-            throws DatabasePersistenceException{
+    public static List<String> getDataList() throws IOException{
+        try {
+            var reader = getReader();
+            var lines = new ArrayList<String>();
+            while((line = reader.readLine()) != null) lines.add(line);
+            return lines;
+        } 
+        catch (FileNotFoundException e) { e.printStackTrace(); }
+        catch(Exception e){ e.printStackTrace(); }
+        return null;
+    }
+
+    public static String getData(int id){
         try{
             var reader = getReader();
             while((line = reader.readLine())!=null){
-                if(line.split(",")[0].equals(Integer.toString(id))) return line;
+                if(line.split(",")[0].equals(""+id)) return line;
             }
             reader.close();
-            return null;
         } catch(Exception e){ 
-            throw new DatabasePersistenceException(
-                "Erro de leitura. " + e.getMessage());
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void persistData(DBCaseEntity dataToSave) 
@@ -53,8 +67,8 @@ public class Database {
                 " já existe no banco de dados."); 
         }
         catch(Exception e) { 
-            throw new DatabasePersistenceException(
-                "Erro de leitura. " + e.getMessage());
+           throw new DatabasePersistenceException(
+                "Erro de persistencia - " + e.getLocalizedMessage());
         }
     }
 
@@ -64,5 +78,4 @@ public class Database {
         writer.newLine();
         writer.close();
     }
-
 }

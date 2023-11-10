@@ -1,5 +1,9 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src",
+        "code_final/src/main/java/com/mycompany/intefacegraficadelegacia",
+        "demo/src/main/java/com/example"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"

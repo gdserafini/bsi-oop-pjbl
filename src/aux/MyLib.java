@@ -28,7 +28,11 @@ public class MyLib {
         var attrValues = getAttributesValues(objToStr);
         for(int i = 0; i < attrValues.size(); i++){
             if(i == 0) formattedStr += attrValues.get(i);
-            else formattedStr += STR_SEPARATOR + attrValues.get(i).toString();
+            else {
+                if(attrValues.get(i) != null){
+                    formattedStr += STR_SEPARATOR + attrValues.get(i);
+                }
+            }
         }
         return formattedStr;
     }

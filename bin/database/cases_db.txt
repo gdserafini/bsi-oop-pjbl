@@ -1,2 +1,4 @@
 id,caseNumber,openingDate,status
 1,123,Thu Oct 19 21:48:10 BRT 2023,st
+2,1233,01-01-2000,ativo,null,null,null,null,null
+3,1233,01-01-2000,ativo
