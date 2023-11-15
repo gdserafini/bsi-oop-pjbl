@@ -2,7 +2,7 @@ package interf;
 
 /*
  * Esta interface deve ser implementada na classe Case
- * - Permitirá que o caso seja salvo no bando de dados
+ * - Permitirá que o caso seja salvo no banco de dados
  * - Essa "regra" de salvamento (com essa interface) 
  *   será usada na classe cadastro no método de salvamento 
  *   no banco de dados

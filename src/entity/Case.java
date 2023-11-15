@@ -30,7 +30,7 @@ public class Case extends Document implements DBCaseEntity {
         this.suspectName = suspectName;
     }
 
-    public Case(int id, 
+    public Case(int id,
             String caseNumber, String openingDate, String status){
         this.id = id;
         this.caseNumber = caseNumber;

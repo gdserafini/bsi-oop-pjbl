@@ -1,4 +1,5 @@
-id,caseNumber,openingDate,status
-1,123,Thu Oct 19 21:48:10 BRT 2023,st
-2,1233,01-01-2000,ativo,null,null,null,null,null
-3,1233,01-01-2000,ativo
+ID do Caso,Número do Caso,Data de Abertura,Status
+1,123,20/02/2020,Encerrado
+2,234,25/11/2021,Aberto
+4,434,15/12/2022,Aberto
+5,545,25/10/2023,Aberto

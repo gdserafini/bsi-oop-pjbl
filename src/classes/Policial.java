@@ -6,15 +6,13 @@ public class Policial extends Person {
     private String cargo;
     private float salario;
     private String dataDeContratacao;
-    private String nomeDelegacia;
 
     public Policial(String name, int age, String cargo,
-            float salario, String dataDeContratacao, String nomeDelegacia){
+            float salario, String dataDeContratacao){
         super(name, age);
         this.cargo = cargo;
         this.salario = salario;
         this.dataDeContratacao = dataDeContratacao;
-        this.nomeDelegacia = nomeDelegacia;
     }
 
     @Override
@@ -22,8 +20,7 @@ public class Policial extends Person {
         return super.getInfo() +
                 "\nCargo: " + this.cargo +
                 "\nSalario: " + this.salario +
-                "\nContratado em: " + this.dataDeContratacao +
-                "\nDelegacia onde atua: " + this.nomeDelegacia;
+                "\nContratado em: " + this.dataDeContratacao;
     }
 
     public String getCargo() {
@@ -53,12 +50,4 @@ public class Policial extends Person {
         this.dataDeContratacao = dataDeContratacao;
     }
 
-    public String getNomeDelegacia() {
-        return nomeDelegacia;
-    }
-
-    public void setNomeDelegacia(String nomeDelegacia) {
-        if(MyLib.invalidString(nomeDelegacia)) return;
-        this.nomeDelegacia = nomeDelegacia;
-    }
 }

@@ -13,7 +13,7 @@ import interf.DBCaseEntity;
 
 public class Database {
     
-    private static final String STD_PATH = "./src/database/";
+    private static final String STD_PATH = "./database/";
     private static final String DB_NAME = "cases_db.txt";
     private static String line;
 
@@ -29,18 +29,6 @@ public class Database {
             "" + STD_PATH + DB_NAME, true));
     }
 
-    public static List<String> getDataList() throws IOException{
-        try {
-            var reader = getReader();
-            var lines = new ArrayList<String>();
-            while((line = reader.readLine()) != null) lines.add(line);
-            return lines;
-        } 
-        catch (FileNotFoundException e) { e.printStackTrace(); }
-        catch(Exception e){ e.printStackTrace(); }
-        return null;
-    }
-
     public static String getData(int id){
         try{
             var reader = getReader();
@@ -54,20 +42,31 @@ public class Database {
         return null;
     }
 
-    public static void persistData(DBCaseEntity dataToSave) 
+    public static void persistData(DBCaseEntity dataToSave)
             throws DatabasePersistenceException{
         try{
             if(getData(dataToSave.getCaseId()) == null){
                 saveData(dataToSave.getDBCaseEntityData());
             }
             else throw new DatabasePersistenceException(
-                "Dado id: " + dataToSave.getCaseId() + 
-                " já existe no banco de dados."); 
+                "Dado id: " + dataToSave.getCaseId() +
+                " já existe no banco de dados.");
         }
-        catch(Exception e) { 
+        catch(Exception e) {
            throw new DatabasePersistenceException(
                 "Erro de persistencia - " + e.getLocalizedMessage());
         }
+    }
+    public static List<String> getDataList() throws IOException{
+        try {
+            var reader = getReader();
+            var lines = new ArrayList<String>();
+            while((line = reader.readLine()) != null) lines.add(line);
+            return lines;
+        }
+        catch (FileNotFoundException e) { e.printStackTrace(); }
+        catch(Exception e){ e.printStackTrace(); }
+        return null;
     }
 
     private static void saveData(String data) throws IOException{

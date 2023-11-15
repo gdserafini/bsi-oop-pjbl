@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/3.6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/3.6.0 http://maven.apache.org/xsd/maven-3.6.0.xsd">
+    <modelVersion>3.6.3</modelVersion>
+    <groupId>com.mycompany</groupId>
+    <artifactId>IntefaceGraficaDelegacia</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <exec.mainClass>com.mycompany.intefacegraficadelegacia.IntefaceGraficaDelegacia</exec.mainClass>
+    </properties>
+</project>
