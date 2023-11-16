@@ -13,7 +13,7 @@ import interf.DBCaseEntity;
 
 public class Database {
     
-    private static final String STD_PATH = "./database/";
+    private static final String STD_PATH = "C:\\Users\\julia\\Downloads\\2\u00B0 per\u00EDodo BSI\\Programa\u00E7\u00E3o Orientada a Objetos\\code_v01\\src\\main\\java\\database\\";
     private static final String DB_NAME = "cases_db.txt";
     private static String line;
 
